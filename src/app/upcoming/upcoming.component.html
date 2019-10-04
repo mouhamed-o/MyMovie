@@ -1,7 +1,8 @@
 <p class="pull-right visible-xs">
   <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
 </p>
-<app-search></app-search>
+<app-search
+(change)="searchMovies($event)"></app-search>
 
 <div *ngIf="searchRes">
   <h3 class="orange-text">Search Results</h3>

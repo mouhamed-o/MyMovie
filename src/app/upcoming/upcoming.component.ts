@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input } from '@angular/core';
 import {MoviesService} from '../movies.service';
 
 @Component({
@@ -9,8 +9,7 @@ import {MoviesService} from '../movies.service';
 export class UpcomingComponent implements OnInit {
   movies: Array<Object>;
   searchRes: Array<Object>;
-  searchStr: string;
-
+  
   constructor(private _moviesService: MoviesService) {
     this._moviesService.getUpComingMovies().subscribe(res => {
       this.movies = res.results;
@@ -20,8 +19,8 @@ export class UpcomingComponent implements OnInit {
   ngOnInit() {
   }
 
-  searchMovies() {
-    this._moviesService.searchMovies(this.searchStr).subscribe(res => {
+  public searchMovies(event) {
+    this._moviesService.searchMovies(event).subscribe(res => {
       this.searchRes = res.results;
     })
   }
