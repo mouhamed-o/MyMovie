@@ -12,6 +12,7 @@ import {MoviesService} from '../movies.service';
 export class SerieComponent implements OnInit {
   serie: Object;
   video: Object;
+  p: number = 1;
   constructor(
     private _moviesServices: MoviesService,
     private router: ActivatedRoute,

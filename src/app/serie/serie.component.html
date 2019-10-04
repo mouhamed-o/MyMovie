@@ -43,30 +43,31 @@
 </div>
 
 <!--Similar Movies-->
-<div *ngIf="serie">
-  <div class="row is-flex" *ngIf="serie.seasons && serie.seasons.length > 0">
-  <div class="col-md-12">
-    <h2>Seasons</h2>
-  </div>
-  <div class="col-md-2" *ngFor="let season of serie.seasons">
-    <div class="thumbnail">
-        <img src="https://image.tmdb.org/t/p/w300/{{season.poster_path}}" *ngIf="season.poster_path">
-        <img src="assets/img/abstract-image.jpg" *ngIf="!season.poster_path">
-        <div class="caption">
-          <h4 class="text-ellipsis">
-            <a title="Season {{season.season_number + 1}}">Season {{season.season_number + 1}} <small>({{season.episode_count}} Episodes)</small></a>
-          </h4>
-          <p><strong>Air Date: </strong>{{season.air_date}}</p>
-          <p>
-            <a>View details &raquo;</a>
-            <small class="label label-success pull-right">
-              {{serie.vote_average}}
-              <i class="glyphicon glyphicon-star"></i>
-            </small>
-          </p>
+  <div *ngIf="serie">
+    <div class="row is-flex" *ngIf="serie.seasons && serie.seasons.length > 0">
+    <div class="col-md-12">
+      <h2>Seasons</h2>
+    </div>
+    <div class="col-md-2" *ngFor="let season of serie.seasons   |  paginate:{ itemsPerPage: 6, currentPage: p }">
+      <div class="thumbnail">
+          <img src="https://image.tmdb.org/t/p/w300/{{season.poster_path}}" *ngIf="season.poster_path">
+          <img src="assets/img/abstract-image.jpg" *ngIf="!season.poster_path">
+          <div class="caption">
+            <h4 class="text-ellipsis">
+              <a title="Season {{season.season_number + 1}}">Season {{season.season_number + 1}} <small>({{season.episode_count}} Episodes)</small></a>
+            </h4>
+            <p><strong>Air Date: </strong>{{season.air_date}}</p>
+            <p>
+              <a>View details &raquo;</a>
+              <small class="label label-success pull-right">
+                {{serie.vote_average}}
+                <i class="glyphicon glyphicon-star"></i>
+              </small>
+            </p>
+          </div>
         </div>
-      </div>
+    </div>
+      <pagination-controls (pageChange)="p = $event" ></pagination-controls>
   </div>
-</div>
 </div>
 <!--Similar Movies-->
