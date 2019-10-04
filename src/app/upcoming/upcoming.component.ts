@@ -9,6 +9,7 @@ import {MoviesService} from '../movies.service';
 export class UpcomingComponent implements OnInit {
   movies: Array<Object>;
   searchRes: Array<Object>;
+  p: number = 1;
   
   constructor(private _moviesService: MoviesService) {
     this._moviesService.getUpComingMovies().subscribe(res => {

@@ -8,7 +8,8 @@ import {MoviesService} from '../movies.service';
 })
 export class PopularSeriesComponent implements OnInit {
   series: Array<Object>;
-
+  p: number = 1;
+  
   constructor(private _moviesService: MoviesService) {
     this._moviesService.getPopularSeries().subscribe(res => {
       this.series = res.results;

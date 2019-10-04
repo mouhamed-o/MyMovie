@@ -12,6 +12,8 @@ export class MoviesComponent implements OnInit {
   topRatedList: Array<Object>;
   searchRes: Array<Object>;
   searchStr: string;
+  p: number = 1;
+  
   constructor(private _moviesService: MoviesService) {
     this._moviesService.getPopular().subscribe(res => {
       this.popularList = res.results;
@@ -27,8 +29,8 @@ export class MoviesComponent implements OnInit {
   ngOnInit() {
   }
 
-  searchMovies() {
-    this._moviesService.searchMovies(this.searchStr).subscribe(res => {
+  searchMovies(event) {
+    this._moviesService.searchMovies(event).subscribe(res => {
       this.searchRes = res.results;
     })
   }

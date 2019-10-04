@@ -16,6 +16,7 @@ import { ActorComponent } from './actor/actor.component';
 import { SearchComponent } from './components/search/search.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CategoryComponent } from './components/category/category.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { CategoryComponent } from './components/category/category.component';
     CategoryComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule, 
+    NgxPaginationModule,
     FormsModule,
     HttpModule,
     JsonpModule,

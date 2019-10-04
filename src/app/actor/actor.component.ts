@@ -11,6 +11,7 @@ import {MoviesService} from '../movies.service';
 export class ActorComponent implements OnInit {
   person: Object;
   movies: Array<Object>;
+  p: number = 1;
   constructor(private _moviesSerice: MoviesService, private router: ActivatedRoute,) {
 
   }

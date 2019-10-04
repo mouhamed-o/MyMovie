@@ -13,6 +13,8 @@ export class MovieComponent implements OnInit {
   similarMovies: Array<Object>;
   cast: Array<Object>;
   video: Object;
+  p: number = 1;
+  
   constructor(
     private _moviesServices: MoviesService,
     private router: ActivatedRoute,

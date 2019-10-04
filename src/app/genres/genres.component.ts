@@ -11,6 +11,7 @@ import {MoviesService} from '../movies.service';
 export class GenresComponent implements OnInit {
   title: string;
   movies: Object;
+  p: number = 1;
 
   constructor(
     private _moviesServices: MoviesService,
