@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
-import { MoviesComponent } from './movies/movies.component';
-import { MovieComponent } from './movie/movie.component';
-import { GenresComponent } from './genres/genres.component';
-import { UpcomingComponent } from './upcoming/upcoming.component';
-import { PopularSeriesComponent } from './popular-series/popular-series.component';
-import { SerieComponent } from './serie/serie.component';
+import { MoviesComponent } from './pages/movies/movies.component';
+import { MovieComponent } from './pages/movie/movie.component';
+import { GenresComponent } from './components/genres/genres.component';
+import { UpcomingComponent } from './pages/upcoming/upcoming.component';
+import { PopularSeriesComponent } from './pages/popular-series/popular-series.component';
+import { SerieComponent } from './pages/serie/serie.component';
 import { ActorComponent } from './components/actor/actor.component';
 
 export const appRoutes: Routes = [
