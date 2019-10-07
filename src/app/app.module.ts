@@ -7,12 +7,12 @@ import { appRoutes } from './app.routes';
 import { AppComponent } from './app.component';
 import { MoviesComponent } from './movies/movies.component';
 import { MovieComponent } from './movie/movie.component';
-import { MovieCardComponent } from './movie-card/movie-card.component';
+import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { GenresComponent } from './genres/genres.component';
 import { UpcomingComponent } from './upcoming/upcoming.component';
 import { PopularSeriesComponent } from './popular-series/popular-series.component';
 import { SerieComponent } from './serie/serie.component';
-import { ActorComponent } from './actor/actor.component';
+import { ActorComponent } from './components/actor/actor.component';
 import { SearchComponent } from './components/search/search.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CategoryComponent } from './components/category/category.component';
@@ -34,7 +34,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     CategoryComponent
   ],
   imports: [
-    BrowserModule, 
+    BrowserModule,
     NgxPaginationModule,
     FormsModule,
     HttpModule,

@@ -13,7 +13,7 @@ export class MoviesComponent implements OnInit {
   searchRes: Array<Object>;
   searchStr: string;
   p: number = 1;
-  
+
   constructor(private _moviesService: MoviesService) {
     this._moviesService.getPopular().subscribe(res => {
       this.popularList = res.results;

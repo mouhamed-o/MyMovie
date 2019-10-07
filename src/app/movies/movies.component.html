@@ -1,8 +1,4 @@
-<p class="pull-right visible-xs">
-  <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
-</p>
-<app-search
-(change)="searchMovies($event)"></app-search>
+<app-search (change)="searchMovies($event)"></app-search>
 <div *ngIf="searchRes">
   <h3 class="orange-text">Search Results</h3>
   <div class="row is-flex">
@@ -10,7 +6,7 @@
       <movie-card [movie]="movie"></movie-card>
     </div>
   </div>
-  <pagination-controls *ngIf="searchRes.length>8"(pageChange)="p = $event" ></pagination-controls>
+  <pagination-controls *ngIf="searchRes.length>8" (pageChange)="p = $event"></pagination-controls>
 </div>
 
 <h3 *ngIf="!searchRes" class="orange-text">Top Rated Movies</h3>
@@ -18,7 +14,7 @@
   <div class="col-sm-6 col-md-4 col-lg-3 col-xs-6" *ngFor="let movie of topRatedList | paginate: { itemsPerPage: 4, currentPage: p }; let i = index;">
     <movie-card [movie]="movie"></movie-card>
   </div>
-  <pagination-controls (pageChange)="p = $event" ></pagination-controls>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>
 
 <h3 *ngIf="!searchRes" class="orange-text">Popular Movies</h3>
@@ -26,5 +22,5 @@
   <div class="col-sm-3" *ngFor="let movie of popularList | paginate: { itemsPerPage: 4, currentPage: p }; let i = index ;">
     <movie-card [movie]="movie"></movie-card>
   </div>
-  <pagination-controls (pageChange)="p = $event" ></pagination-controls>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>
