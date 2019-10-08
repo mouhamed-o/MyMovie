@@ -25,7 +25,7 @@
       <div class="col-sm-3" *ngFor="let movie of movies | paginate: { itemsPerPage: 4, currentPage: p } ; let i = index;">
         <movie-card [movie]="movie"></movie-card>
       </div>
-      <pagination-controls (pageChange)="p = $event" ></pagination-controls>
+      <pagination-controls *ngIf="movies.length>4" (pageChange)="p = $event" ></pagination-controls>
     </div>
   </div>
 </div>

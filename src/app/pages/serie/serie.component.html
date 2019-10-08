@@ -1,3 +1,4 @@
+
 <div class="row" *ngIf="serie">
   <div class="col-md-4">
     <img src="https://image.tmdb.org/t/p/w500/{{serie.poster_path}}" alt="" class="thumbnail">
@@ -23,7 +24,8 @@
       </span>
     </p>
     <p>
-      <a routerLink="/genres/{{genre.id}}/{{genre.name}}" *ngFor="let genre of serie.genres" class="label label-info m-r-md">
+      <!--<a routerLink="/genres/{{genre.id}}/{{genre.name}}" *ngFor="let genre of serie.genres" class="label label-info m-r-md">-->
+      <a *ngFor="let genre of serie.genres" class="label label-info m-r-md"> 
         {{genre.name}}
       </a>
     </p>

@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
-import {MoviesService} from '../../movies.service';
+import {MoviesService} from '../../services/movies.service';
 
 
 @Component({

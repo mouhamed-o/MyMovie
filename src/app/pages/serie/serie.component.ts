@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 
-import {MoviesService} from '../../movies.service';
+import {MoviesService} from '../../services/movies.service';
 
 @Component({
   selector: 'app-serie',
