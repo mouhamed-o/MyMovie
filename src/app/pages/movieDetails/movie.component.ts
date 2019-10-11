@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import {MoviesService} from '../../services/movies.service';
+import {MoviesService} from '../../services/movieService/movies.service';
 
 @Component({
   selector: 'app-movie',
@@ -40,8 +40,6 @@ export class MovieComponent implements OnInit {
         }
       });
       this._moviesServices.getSimilarMovies(id).subscribe(res => {
-        console.log(res.results);
-
         this.similarMovies = res.results.slice(0, 12);
       });
     })

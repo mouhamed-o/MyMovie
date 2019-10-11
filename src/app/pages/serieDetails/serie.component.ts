@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
-
-import {MoviesService} from '../../services/movies.service';
+import { SeriesService } from 'src/app/services/serieService/serieservice.service';
 
 @Component({
   selector: 'app-serie',
@@ -14,7 +13,7 @@ export class SerieComponent implements OnInit {
   video: Object;
   p: number = 1;
   constructor(
-    private _moviesServices: MoviesService,
+    private _seriesServices: SeriesService,
     private router: ActivatedRoute,
     private sanitizer: DomSanitizer
     ) {
@@ -24,10 +23,10 @@ export class SerieComponent implements OnInit {
   ngOnInit() {
     this.router.params.subscribe((params) => {
       const id = params['id'];
-      this._moviesServices.getSerieDetails(id).subscribe(serie => {
+      this._seriesServices.getSerieDetails(id).subscribe(serie => {
         this.serie = serie;
       });
-      this._moviesServices.getSerieVideos(id).subscribe(res => {
+      this._seriesServices.getSerieVideos(id).subscribe(res => {
         if(res.results && res.results.length) {
           this.video = res.results[0];
           this.video['url'] = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + this.video['key']);

@@ -6,17 +6,20 @@ import { RouterModule, Routes } from '@angular/router';
 import { appRoutes } from './app.routes';
 import { AppComponent } from './app.component';
 import { MoviesComponent } from './pages/movies/movies.component';
-import { MovieComponent } from './pages/movie/movie.component';
-import { MovieCardComponent } from './components/movie-card/movie-card.component';
+import { MovieComponent } from './pages/movieDetails/movie.component';
+import { MovieCardComponent } from "./components/movie-card/movie-card.component";
 import { GenresComponent } from './components/genres/genres.component';
-import { UpcomingComponent } from './pages/upcoming/upcoming.component';
-import { PopularSeriesComponent } from './pages/popular-series/popular-series.component';
-import { SerieComponent } from './pages/serie/serie.component';
-import { ActorComponent } from './components/actor/actor.component';
+import { UpcomingComponent } from './pages/upcomingMovies/upcoming.component';
+import { SeriesComponent } from './pages/series/series.component';
+import { SerieComponent } from './pages/serieDetails/serie.component';
+import { ActorComponent } from './pages/actorDetails/actor.component';
 import { SearchComponent } from './components/search/search.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CategoryComponent } from './components/category/category.component';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { SerieCardComponent } from './components/serie-card/serie-card.component';
+import { SeriesService } from './services/serieService/serieservice.service';
+import { ActorCardComponent } from './components/actor-card/actor-card.component';
 
 @NgModule({
   declarations: [
@@ -26,12 +29,14 @@ import {NgxPaginationModule} from 'ngx-pagination';
     MovieCardComponent,
     GenresComponent,
     UpcomingComponent,
-    PopularSeriesComponent,
+    SeriesComponent,
     SerieComponent,
     ActorComponent,
     SearchComponent,
     NavbarComponent,
-    CategoryComponent
+    CategoryComponent,
+    SerieCardComponent,
+    ActorCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +46,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     JsonpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [SeriesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

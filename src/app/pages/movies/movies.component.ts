@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 
-import {MoviesService} from '../../services/movies.service';
+import {MoviesService} from '../../services/movieService/movies.service';
 @Component({
   selector: 'movies',
   templateUrl: './movies.component.html',
@@ -13,6 +13,7 @@ export class MoviesComponent implements OnInit {
   searchRes: Array<Object>;
   searchStr: string;
   p: number = 1;
+  @Output() searchType:number=1;
 
   constructor(private _moviesService: MoviesService) {
     this._moviesService.getPopular().subscribe(res => {

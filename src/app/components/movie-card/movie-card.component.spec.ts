@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { MovieCardComponent } from './movie-card.component';
+import { MovieCardComponent } from "./movie-card.component";
 
 describe('MovieCardComponent', () => {
   let component: MovieCardComponent;
