@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import {MoviesService} from '../../services/movieService/movies.service';
 import { SeriesService } from 'src/app/services/serieService/serieservice.service';
+import { EventEmitter } from 'events';
 
 @Component({
   selector: 'app-genres',
@@ -12,23 +13,34 @@ import { SeriesService } from 'src/app/services/serieService/serieservice.servic
 export class GenresComponent implements OnInit {
   title: string;
   movies: Object;
+  series: Object;
   p: number = 1;
+  @Input() genreType;
+  @Output() searchType;
 
   constructor(
     private _moviesServices: MoviesService,
     private _seriesServices: SeriesService,
     private router: ActivatedRoute ) {
 
+      this.router.params.subscribe((params) => {
+        const id = params['id'];
+        this.genreType = params['genreType']
+        this.title = params['name'];
+        this.searchType = this.genreType;
+      })
+
   }
 
   ngOnInit() {
     this.router.params.subscribe((params) => {
-      console.log(params)
       const id = params['id'];
-      this.title = params['name'];
-      this._moviesServices.getMoviesByGenre(id).subscribe(res => {
-        this.movies = res.results;
-      });
+      if(this.genreType==1){
+        this._moviesServices.getMoviesByGenre(id).subscribe(res => {
+          this.movies = res.results;
+          this.searchType=1;
+        });
+      }
     })
   }
 

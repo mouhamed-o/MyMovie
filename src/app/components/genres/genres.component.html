@@ -1,4 +1,4 @@
-<app-category></app-category>
+<app-category [searchType]="searchType"></app-category>
 <div *ngIf="movies">
   <h3 class="orange-text">{{title}}</h3>
   <div class="row is-flex">
@@ -7,4 +7,12 @@
     </div>
   </div>
   <pagination-controls (pageChange)="p = $event" ></pagination-controls>
+  <div *ngIf="series">
+      <h3 class="orange-text">{{title}}</h3>
+      <div class="row is-flex">
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xs-6" *ngFor="let serie of series | paginate: { itemsPerPage: 6, currentPage: p }; let i = index;">
+          <serie-card [serie]="serie"></serie-card>
+        </div>
+      </div>
+      <pagination-controls (pageChange)="p = $event" ></pagination-controls>
 </div>
