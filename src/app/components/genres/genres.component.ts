@@ -35,12 +35,10 @@ export class GenresComponent implements OnInit {
   ngOnInit() {
     this.router.params.subscribe((params) => {
       const id = params['id'];
-      if(this.genreType==1){
         this._moviesServices.getMoviesByGenre(id).subscribe(res => {
           this.movies = res.results;
           this.searchType=1;
         });
-      }
     })
   }
 

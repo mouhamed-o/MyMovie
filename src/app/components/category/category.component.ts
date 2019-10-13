@@ -17,12 +17,10 @@ export class CategoryComponent implements OnInit {
   }
 
   ngOnInit() {
-    if(this.searchType==1){
       this.genreType=1;
       this._moviesServices.getGenres().subscribe(res => {
         this.genres = res.genres.slice(0, 20);
       });
-    }
   }
 
 }
