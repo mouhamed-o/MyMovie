@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 import { SeriesService } from 'src/app/services/serieService/serieservice.service';
@@ -12,6 +12,7 @@ export class SerieComponent implements OnInit {
   serie: Object;
   video: Object;
   p: number = 1;
+  @Output() searchType:number=2;
   constructor(
     private _seriesServices: SeriesService,
     private router: ActivatedRoute,

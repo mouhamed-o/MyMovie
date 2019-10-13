@@ -1,0 +1,23 @@
+<div class="row">
+      <app-category [searchType]="searchType" ></app-category>
+        <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10">      
+        <app-search [searchType]="searchType" (changeActors)="searchActors($event)"></app-search>
+        <div *ngIf="searchRes">
+          <h3 class="orange-text">Search Results</h3>
+          <div class="row is-flex">
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xs-6" *ngFor="let actor of searchRes | paginate: { itemsPerPage: 4, currentPage: p }; let i = index;">
+              <app-actor-card [actor]="actor"></app-actor-card>
+            </div>
+          </div>
+          <pagination-controls *ngIf="searchRes.length>8" (pageChange)="p = $event"></pagination-controls>
+        </div>
+        <h3 *ngIf="!searchRes" class="orange-text">Popular Actors</h3>
+        <div *ngIf="!searchRes" class="row is-flex">
+          <div class="col-sm-3" *ngFor="let actor of popularList | paginate: { itemsPerPage: 8, currentPage: p }; let i = index ;">
+            <app-actor-card [actor]="actor"></app-actor-card>
+          </div>
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+      </div>
+</div>
+

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import {MoviesService} from '../../services/movieService/movies.service';
@@ -14,6 +14,7 @@ export class MovieComponent implements OnInit {
   cast: Array<Object>;
   video: Object;
   p: number = 1;
+  @Output() searchType:number=1;
 
   constructor(
     private _moviesServices: MoviesService,

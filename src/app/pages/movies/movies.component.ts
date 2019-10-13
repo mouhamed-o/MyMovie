@@ -16,6 +16,7 @@ export class MoviesComponent implements OnInit {
   @Output() searchType:number=1;
 
   constructor(private _moviesService: MoviesService) {
+    this.searchType=1;
     this._moviesService.getPopular().subscribe(res => {
       this.popularList = res.results;
     });

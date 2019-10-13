@@ -1,6 +1,5 @@
-<br>
 <div class="row">
-      <app-category></app-category>
+      <app-category [searchType]="searchType" ></app-category>
         <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10">      
         <app-search [searchType]="searchType" (changeMovies)="searchMovies($event)"></app-search>
         <div *ngIf="searchRes">

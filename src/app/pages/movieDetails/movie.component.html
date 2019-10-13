@@ -1,10 +1,11 @@
 <br>
 <div class="row">
-    <app-category></app-category>  
+    <app-category [searchType]="searchType"></app-category>  
   <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10">
     <div class="row" *ngIf="movie">
       <div class="col-md-4">
-        <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="" class="thumbnail">
+        <img *ngIf="movie.poster_path"src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="" class="thumbnail">
+        <img *ngIf="!movie.poster_path" src="./../../../assets/abstract-image.jpg" routerLink="/movie/{{movie.id}}" >
         <p>
           <a *ngIf="movie.homepage" href="{{movie.homepage}}" class="btn btn-info btn-block" target="_blank">Visit Movies Website</a>
         </p>

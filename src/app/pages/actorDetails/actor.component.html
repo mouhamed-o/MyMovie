@@ -1,4 +1,5 @@
 <div class="row" *ngIf="person">
+    <app-category [searchType]="searchType" ></app-category>
   <div class="col-md-3">
     <div class="thumbnail">
       <img src="https://image.tmdb.org/t/p/w300/{{person.profile_path}}" *ngIf="person.profile_path">
@@ -19,7 +20,18 @@
       </div>
     </div>
   </div>
-  <div class="col-md-9">
+  <div *ngIf="person.biography" class="col-md-7">
+      <br>
+      <br>
+      <br>
+      <h3 class="orange-text" style="color: #ff424f" >Biography</h3>
+      <p>{{person.biography}}</p>
+      <br>
+      <p *ngIf="person.also_known_as" ><strong *ngIf="person.also_known_as" style="color: #ff424f" >Akwa: </strong>{{person.also_known_as}}</p>
+      <br>
+      <a *ngIf="person.homepage" href="{{person.homepage}}" class="btn btn-info" target="_blank">Visit {{person.name}} Website</a>
+  </div>
+  <div *ngIf="movies"  class="col-md-7">
     <h3 class="orange-text">Movies</h3>
     <div class="row is-flex">
       <div class="col-sm-3" *ngFor="let movie of movies | paginate: { itemsPerPage: 4, currentPage: p } ; let i = index;">

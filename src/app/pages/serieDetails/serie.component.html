@@ -1,10 +1,10 @@
-
 <div class="row">
-      <app-category></app-category>
+      <app-category [searchType]="searchType"></app-category>
   <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10">
     <div class="row" *ngIf="serie">
       <div class="col-md-4">
         <img src="https://image.tmdb.org/t/p/w500/{{serie.poster_path}}" alt="" class="thumbnail">
+        <img *ngIf="!serie.poster_path" src="../.././../assets/abstract-image.jpg" >
         <p>
           <a *ngIf="serie.homepage" href="{{serie.homepage}}" class="btn btn-info btn-block" target="_blank">Visit Movies Website</a>
         </p>
@@ -54,9 +54,10 @@
           <h2>Seasons</h2>
         </div>
         <div class="col-md-2" *ngFor="let season of serie.seasons   |  paginate:{ itemsPerPage: 6, currentPage: p }">
+          <!--<season-card [season]="season"></season-card>-->
           <div class="thumbnail">
-              <img src="https://image.tmdb.org/t/p/w300/{{season.poster_path}}" *ngIf="season.poster_path">
-              <img src="assets/img/abstract-image.jpg" *ngIf="!season.poster_path">
+              <img *ngIf="season.poster_path" src="https://image.tmdb.org/t/p/w300/{{season.poster_path}}">
+              <img *ngIf="!season.poster_path" src="../../../assets/abstract-image.jpg">
               <div class="caption">
                 <h4 class="text-ellipsis">
                   <a title="Season {{season.season_number + 1}}">Season {{season.season_number + 1}} <small>({{season.episode_count}} Episodes)</small></a>

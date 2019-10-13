@@ -14,11 +14,12 @@ export class SeriesComponent implements OnInit {
   searchStr: string;
   series: Array<Object>;
   p: number = 1;
+ 
   @Output() searchType:number=2;
   
 
   constructor(private _seriesService: SeriesService) {
-
+   this.searchType=2;
     this._seriesService.getTopRatedSeries().subscribe(res => {
       this.topRatedList = res.results;
     });
