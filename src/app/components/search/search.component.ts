@@ -12,6 +12,7 @@ export class SearchComponent implements OnInit {
   searchStr: string;
   @Output() changeMovies = new EventEmitter<string>();
   @Output() changeSeries = new EventEmitter<string>();
+  @Output() changeActors = new EventEmitter<string>();
   @Input() searchType;
 
   constructor(private _moviesService: MoviesService) {
@@ -24,8 +25,11 @@ export class SearchComponent implements OnInit {
     if(this.searchType==1){
       this.changeMovies.emit(this.searchStr);
     }
-    else{
+    else if (this.searchType==2){
       this.changeSeries.emit(this.searchStr);
+    }
+    else{
+      this.changeActors.emit(this.searchStr);
     }
   }
 

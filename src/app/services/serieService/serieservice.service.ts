@@ -4,12 +4,30 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class SeriesService {
-
   apikey: string;
 
   constructor(private _jsonp: Jsonp) {
     this.apikey = 'fed69657ba4cc6e1078d2a6a95f51c8c';
   }
+  getGenres() {
+    var search = new URLSearchParams();
+    search.set('language', 'en-US');
+    search.set('api_key', this.apikey);
+    return this._jsonp.get('https://api.themoviedb.org/3/genre/tv/list?callback=JSONP_CALLBACK', {search})
+      .map(res => {
+        return res.json();
+      })
+  }
+  getSeriesByGenre(id: any) {
+  
+    var search = new URLSearchParams();
+    search.set('api_key', this.apikey);
+    return this._jsonp.get('https://api.themoviedb.org/3/genre/'+ id +'/tv?callback=JSONP_CALLBACK', {search})
+      .map(res => {
+        return res.json();
+      })
+  }
+
 
   getPopularSeries() {
     var search = new URLSearchParams();

@@ -1,9 +1,9 @@
 <div class="jumbotron">
-  <p>Search for a movie using the form below</p>
+  <p>For search using the form below</p>
   <form>
     <div class="form-group">
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search for movies..." [(ngModel)]="searchStr" name="searchStr" (keyup.enter)="searchMovies()">
+        <input type="text" class="form-control" placeholder="search ..." [(ngModel)]="searchStr" name="searchStr" (keyup.enter)="searchMovies()">
         <span class="input-group-btn">
           <button class="btn btn-primary" type="button" (click)="search()">Go!</button>
         </span>

@@ -6,13 +6,40 @@ import 'rxjs/Rx';
   providedIn: 'root'
 })
 export class ActorService {
+  
+  searchActors(searchStr: string) {
+    var search = new URLSearchParams();
+    search.set('sort_by','popularity.desc');
+    search.set('query', searchStr);
+    search.set('api_key', this.apikey);
+    return this._jsonp.get('https://api.themoviedb.org/3/search/person?callback=JSONP_CALLBACK', {search})
+      .map(res => {
+        return res.json();
+      })
+  }
 
   apikey: string;
 
   constructor(private _jsonp: Jsonp) {
     this.apikey = 'fed69657ba4cc6e1078d2a6a95f51c8c';
+    
   }
-
+  getPopular() {
+    var search = new URLSearchParams();
+    search.set('api_key', this.apikey);
+    return this._jsonp.get('https://api.themoviedb.org/3/person/popular?callback=JSONP_CALLBACK', {search})
+      .map(res => {
+        return res.json();
+      })
+  }
+  getInTheaters() {
+    var search = new URLSearchParams();
+    search.set('api_key', this.apikey);
+    return this._jsonp.get('https://api.themoviedb.org/3/person/latest?callback=JSONP_CALLBACK', {search})
+      .map(res => {
+        return res.json();
+      })
+  }
   getPersonDetail(id:string) {
     var search = new URLSearchParams();
     search.set('api_key', this.apikey);

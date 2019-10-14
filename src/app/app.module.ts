@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
+import {TabModule} from 'angular-tabs-component';
 import { appRoutes } from './app.routes';
 import { AppComponent } from './app.component';
 import { MoviesComponent } from './pages/movies/movies.component';
@@ -20,6 +21,13 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { SerieCardComponent } from './components/serie-card/serie-card.component';
 import { SeriesService } from './services/serieService/serieservice.service';
 import { ActorCardComponent } from './components/actor-card/actor-card.component';
+import { SeasonCardComponent } from './components/season-card/season-card.component';
+import { ActorsComponent } from './pages/actors/actors.component';
+import { SignInComponent } from './components/user/sign-in/sign-in.component';
+import { SignUpComponent } from './components/user/sign-up/sign-up.component';
+import { UserFormComponent } from './components/user/user-form/user-form.component';
+import {IgxTabsModule} from 'igniteui-angular';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -37,12 +45,20 @@ import { ActorCardComponent } from './components/actor-card/actor-card.component
     CategoryComponent,
     SerieCardComponent,
     ActorCardComponent,
+    SeasonCardComponent,
+    ActorsComponent,
+    SignInComponent,
+    SignUpComponent,
+    //UserFormComponent,
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     NgxPaginationModule,
     FormsModule,
     HttpModule,
+    TabModule,
+    IgxTabsModule,
     JsonpModule,
     RouterModule.forRoot(appRoutes)
   ],

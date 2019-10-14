@@ -1,6 +1,6 @@
 <div class="thumbnail">
-        <img src="https://image.tmdb.org/t/p/w300/{{season.poster_path}}" *ngIf="season.poster_path">
-        <img src="../../../assets/abstract-image.jpg" *ngIf="!season.poster_path">
+        <img *ngIf="season.poster_path" src="https://image.tmdb.org/t/p/w300/{{season.poster_path}}">
+        <img *ngIf="!season.poster_path" src="../../../assets/abstract-image.jpg">
         <div class="caption">
           <h4 class="text-ellipsis">
             <a title="Season {{season.season_number + 1}}">Season {{season.season_number + 1}} <small>({{season.episode_count}} Episodes)</small></a>
