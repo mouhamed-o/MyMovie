@@ -4,7 +4,7 @@
     <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10">
         <app-search [searchType]="searchType" (changeSeries)="searchSeries($event)"></app-search>
         <div *ngIf="searchRes">
-          <h3 class="orange-text">Search Results</h3>
+          <h3 class="orange-text">Résultats de la recherche</h3>
           <div class="row is-flex">
             <div class="col-sm-6 col-md-4 col-lg-3 col-xs-6" *ngFor="let serie of searchRes | paginate: { itemsPerPage: 8, currentPage: p }; let i = index;">
               <serie-card [serie]="serie"></serie-card>
@@ -13,7 +13,7 @@
           <pagination-controls *ngIf="searchRes.length>8" (pageChange)="p = $event"></pagination-controls>
         </div>
         <div *ngIf="!searchRes" class="row is-flex">
-          <h3 *ngIf="!searchRes" class="orange-text">Top Rated Series</h3>
+          <h3 *ngIf="!searchRes" class="orange-text">Series les mieux notés</h3>
           <div class="col-sm-6 col-md-4 col-lg-3 col-xs-6" *ngFor="let serie of topRatedList | paginate: { itemsPerPage: 4, currentPage: p }; let i = index;">
             <serie-card [serie]="serie"></serie-card>
           </div>
@@ -21,12 +21,12 @@
         </div>
         
         <div *ngIf="series">
-          <h3 class="orange-text">Popular Series</h3>
+          <h3 class="orange-text">Séries populaires</h3>
           <div class="row is-flex">
             <div class="col-sm-6 col-md-4 col-lg-3 col-xs-6" *ngFor="let serie of series | paginate: { itemsPerPage: 4, currentPage: p }; let i = index;">
               <serie-card [serie]="serie"></serie-card>
             </div>
           </div>
-          <pagination-controls (pageChange)="p = $event" ></pagination-controls>
+          <pagination-controls (pageChange)="p = $event" previousLabel="Précédent" nextLabel="Suivant"></pagination-controls>
         </div>
     </div>

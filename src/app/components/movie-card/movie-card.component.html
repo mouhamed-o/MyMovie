@@ -5,9 +5,9 @@
     <h4 class="text-ellipsis">
       <a routerLink="/movie/{{movie.id}}" title="{{movie.title}}">{{movie.title}}</a>
     </h4>
-    <p><strong>Release Date: </strong>{{movie.release_date}}</p>
+    <p><strong>Date de parution: </strong>{{movie.release_date}}</p>
     <p>
-      <a routerLink="/movie/{{movie.id}}">View details &raquo;</a>
+      <a routerLink="/movie/{{movie.id}}">Détails &raquo;</a>
       <small class="label label-success pull-right" *ngIf="movie.vote_average">
         {{movie.vote_average}}
         <i class="glyphicon glyphicon-star"></i>

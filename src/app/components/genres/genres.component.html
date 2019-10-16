@@ -6,7 +6,7 @@
       <movie-card [movie]="movie"></movie-card>
     </div>
   </div>
-  <pagination-controls (pageChange)="p = $event" ></pagination-controls>
+  <pagination-controls (pageChange)="p = $event" previousLabel="Précédent" nextLabel="Suivant" ></pagination-controls>
   <div *ngIf="series">
       <h3 class="orange-text">{{title}}</h3>
       <div class="row is-flex">
@@ -14,5 +14,5 @@
           <serie-card [serie]="serie"></serie-card>
         </div>
       </div>
-      <pagination-controls (pageChange)="p = $event" ></pagination-controls>
+      <pagination-controls (pageChange)="p = $event" previousLabel="Précédent" nextLabel="Suivant" ></pagination-controls>
 </div>

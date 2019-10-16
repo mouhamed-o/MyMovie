@@ -6,7 +6,7 @@
         <img src="https://image.tmdb.org/t/p/w500/{{serie.poster_path}}" alt="" class="thumbnail">
         <img *ngIf="!serie.poster_path" src="../.././../assets/abstract-image.jpg" >
         <p>
-          <a *ngIf="serie.homepage" href="{{serie.homepage}}" class="btn btn-info btn-block" target="_blank">Visit Movies Website</a>
+          <a *ngIf="serie.homepage" href="{{serie.homepage}}" class="btn btn-info btn-block" target="_blank">Visitez le site web du film</a>
         </p>
       </div>
       <div class="col-md-8">
@@ -17,13 +17,13 @@
           </small>
         </h2>
         <p>{{serie.status}}</p>
-        <p><strong>Last Air Date: </strong>{{serie.last_air_date}}</p>
-        <p><strong>Number Of Seasons: </strong>{{serie.number_of_seasons}}</p>
-        <p><strong>Number Of Episodes: </strong>{{serie.number_of_episodes}}</p>
+        <p><strong>Date dernière diffusion: </strong>{{serie.last_air_date}}</p>
+        <p><strong>Nombre de saisons: </strong>{{serie.number_of_seasons}}</p>
+        <p><strong>Nombre d'épisodes: </strong>{{serie.number_of_episodes}}</p>
         <p>
-          <strong>Production Companies: </strong>
-          <span *ngFor="let comapny of serie.production_companies" class="label label-danger m-r-md">
-            {{comapny.name}}
+          <strong>Compagnie de production: </strong>
+          <span *ngFor="let compagny of serie.production_companies" class="label label-danger m-r-md">
+            {{compagny.name}}
           </span>
         </p>
         <p>
@@ -32,7 +32,7 @@
             {{genre.name}}
           </a>
         </p>
-        <h3>Overview</h3>
+        <h3>Vue d'ensemble</h3>
         <p>
           {{serie.overview}}
         </p>
@@ -51,7 +51,7 @@
       <div *ngIf="serie">
         <div class="row is-flex" *ngIf="serie.seasons && serie.seasons.length > 0">
         <div class="col-md-12">
-          <h2>Seasons</h2>
+          <h2>Saisons</h2>
         </div>
         <div class="col-md-2" *ngFor="let season of serie.seasons   |  paginate:{ itemsPerPage: 6, currentPage: p }">
           <!--<season-card [season]="season"></season-card>-->
@@ -60,11 +60,11 @@
               <img *ngIf="!season.poster_path" src="../../../assets/abstract-image.jpg">
               <div class="caption">
                 <h4 class="text-ellipsis">
-                  <a title="Season {{season.season_number + 1}}">Season {{season.season_number + 1}} <small>({{season.episode_count}} Episodes)</small></a>
+                  <a title="Season {{season.season_number + 1}}">Saison {{season.season_number + 1}} <small>({{season.episode_count}} Episodes)</small></a>
                 </h4>
-                <p><strong>Air Date: </strong>{{season.air_date}}</p>
+                <p><strong>Date de diffusion: </strong>{{season.air_date}}</p>
                 <p>
-                  <a>View details &raquo;</a>
+                  <a>Détails &raquo;</a>
                   <small class="label label-success pull-right">
                     {{serie.vote_average}}
                     <i class="glyphicon glyphicon-star"></i>
@@ -73,7 +73,7 @@
               </div>
             </div>
         </div>
-          <pagination-controls (pageChange)="p = $event" ></pagination-controls>
+          <pagination-controls (pageChange)="p = $event" previousLabel="Précédent" nextLabel="Suivant" ></pagination-controls>
       </div>
   </div>
   <!--Similar Movies-->

@@ -11,7 +11,7 @@ export class SeriesService {
   }
   getGenres() {
     var search = new URLSearchParams();
-    search.set('language', 'en-US');
+    search.set('language', 'fr');
     search.set('api_key', this.apikey);
     return this._jsonp.get('https://api.themoviedb.org/3/genre/tv/list?callback=JSONP_CALLBACK', {search})
       .map(res => {
@@ -22,6 +22,7 @@ export class SeriesService {
   
     var search = new URLSearchParams();
     search.set('api_key', this.apikey);
+    search.set('language', 'fr');
     return this._jsonp.get('https://api.themoviedb.org/3/genre/'+ id +'/tv?callback=JSONP_CALLBACK', {search})
       .map(res => {
         return res.json();
@@ -32,6 +33,7 @@ export class SeriesService {
   getPopularSeries() {
     var search = new URLSearchParams();
     search.set('api_key', this.apikey);
+    search.set('language', 'fr');
     return this._jsonp.get('https://api.themoviedb.org/3/tv/popular?callback=JSONP_CALLBACK', {search})
       .map(res => {
         return res.json();
@@ -41,6 +43,7 @@ export class SeriesService {
   getTopRatedSeries() {
     var search = new URLSearchParams();
     search.set('api_key', this.apikey);
+    search.set('language', 'fr');
     return this._jsonp.get('https://api.themoviedb.org/3/tv/top_rated?callback=JSONP_CALLBACK', {search})
       .map(res => {
         return res.json();
@@ -50,6 +53,7 @@ export class SeriesService {
   getSerieDetails(id:string) {
     var search = new URLSearchParams();
     search.set('api_key', this.apikey);
+    search.set('language', 'fr');
     return this._jsonp.get('https://api.themoviedb.org/3/tv/'+ id +'?callback=JSONP_CALLBACK', {search})
       .map(res => {
         return res.json();
@@ -59,6 +63,7 @@ export class SeriesService {
   getSerieVideos(id:string) {
     var search = new URLSearchParams();
     search.set('api_key', this.apikey);
+    search.set('language', 'fr');
     return this._jsonp.get('https://api.themoviedb.org/3/tv/'+ id +'/videos?callback=JSONP_CALLBACK', {search})
       .map(res => {
         return res.json();
@@ -67,6 +72,7 @@ export class SeriesService {
   searchSeries(searchStr: string) {
     var search = new URLSearchParams();
     search.set('sort_by','popularity.desc');
+    search.set('language', 'fr');
     search.set('query', searchStr);
     search.set('api_key', this.apikey);
     return this._jsonp.get('https://api.themoviedb.org/3/search/tv?callback=JSONP_CALLBACK', {search})

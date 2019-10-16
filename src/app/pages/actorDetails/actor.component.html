@@ -8,10 +8,10 @@
         <h4 class="text-ellipsis">
           {{person.name}}
         </h4>
-        <p><strong>Birthday: </strong>{{person.birthday}}</p>
-        <p><strong>Place of Birth: </strong>{{person.place_of_birth}}</p>
+        <p><strong>Date de naissance: </strong>{{person.birthday}}</p>
+        <p><strong>Lieu de naissance: </strong>{{person.place_of_birth}}</p>
         <p>
-          <strong>Popularity</strong>
+          <strong>Popularité</strong>
           <small class="label label-success pull-right">
               {{person.popularity}}
               <i class="glyphicon glyphicon-star"></i>
@@ -24,20 +24,20 @@
       <br>
       <br>
       <br>
-      <h3 class="orange-text" style="color: #ff424f" >Biography</h3>
+      <h3 class="orange-text" style="color: #ff424f" >Biographie</h3>
       <p>{{person.biography}}</p>
       <br>
       <p *ngIf="person.also_known_as" ><strong *ngIf="person.also_known_as" style="color: #ff424f" >Akwa: </strong>{{person.also_known_as}}</p>
       <br>
-      <a *ngIf="person.homepage" href="{{person.homepage}}" class="btn btn-info" target="_blank">Visit {{person.name}} Website</a>
+      <a *ngIf="person.homepage" href="{{person.homepage}}" class="btn btn-info" target="_blank">Visitez le site web de {{person.name}} </a>
   </div>
   <div *ngIf="movies"  class="col-md-7">
-    <h3 class="orange-text">Movies</h3>
+    <h3 class="orange-text">Films</h3>
     <div class="row is-flex">
       <div class="col-sm-3" *ngFor="let movie of movies | paginate: { itemsPerPage: 4, currentPage: p } ; let i = index;">
         <movie-card [movie]="movie"></movie-card>
       </div>
-      <pagination-controls *ngIf="movies.length>4" (pageChange)="p = $event" ></pagination-controls>
+      <pagination-controls *ngIf="movies.length>4" (pageChange)="p = $event" previousLabel="Précédent" nextLabel="Suivant" ></pagination-controls>
     </div>
   </div>
 </div>

@@ -6,7 +6,7 @@ import 'rxjs/Rx';
   providedIn: 'root'
 })
 export class ActorService {
-  
+
   searchActors(searchStr: string) {
     var search = new URLSearchParams();
     search.set('sort_by','popularity.desc');
@@ -22,11 +22,12 @@ export class ActorService {
 
   constructor(private _jsonp: Jsonp) {
     this.apikey = 'fed69657ba4cc6e1078d2a6a95f51c8c';
-    
+
   }
   getPopular() {
     var search = new URLSearchParams();
     search.set('api_key', this.apikey);
+    search.set('language', 'fr');
     return this._jsonp.get('https://api.themoviedb.org/3/person/popular?callback=JSONP_CALLBACK', {search})
       .map(res => {
         return res.json();
@@ -35,6 +36,7 @@ export class ActorService {
   getInTheaters() {
     var search = new URLSearchParams();
     search.set('api_key', this.apikey);
+    search.set('language', 'fr');
     return this._jsonp.get('https://api.themoviedb.org/3/person/latest?callback=JSONP_CALLBACK', {search})
       .map(res => {
         return res.json();
@@ -43,6 +45,7 @@ export class ActorService {
   getPersonDetail(id:string) {
     var search = new URLSearchParams();
     search.set('api_key', this.apikey);
+    search.set('language', 'fr');
     return this._jsonp.get('https://api.themoviedb.org/3/person/'+ id +'?callback=JSONP_CALLBACK', {search})
       .map(res => {
         return res.json();
@@ -52,6 +55,7 @@ export class ActorService {
   getPersonCast(id:string) {
     var search = new URLSearchParams();
     search.set('api_key', this.apikey);
+    search.set('language', 'fr');
     return this._jsonp.get('https://api.themoviedb.org/3/person/'+ id +'/movie_credits?callback=JSONP_CALLBACK', {search})
       .map(res => {
         return res.json();

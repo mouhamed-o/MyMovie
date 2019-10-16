@@ -12,6 +12,7 @@ export class MoviesService {
 
   getPopular() {
     var search = new URLSearchParams();
+    search.set('language', 'fr');
     search.set('sort_by','popularity.desc');
     search.set('api_key', this.apikey);
     return this._jsonp.get('https://api.themoviedb.org/3/discover/movie?callback=JSONP_CALLBACK', {search})
@@ -22,6 +23,7 @@ export class MoviesService {
 
   getInTheaters() {
     var search = new URLSearchParams();
+    search.set('language', 'fr');
     search.set('primary_release_date.gt', '2015-10-20');
     search.set('primary_release_date.lte', '2015-12-20');
     search.set('sort_by','popularity.desc');
@@ -35,6 +37,7 @@ export class MoviesService {
   getTopRatedMovies() {
     var search = new URLSearchParams();
     search.set('api_key', this.apikey);
+    search.set('language', 'fr');
     return this._jsonp.get('https://api.themoviedb.org/3/movie/top_rated?callback=JSONP_CALLBACK', {search})
       .map(res => {
         return res.json();
@@ -43,6 +46,7 @@ export class MoviesService {
 
   searchMovies(searchStr: string) {
     var search = new URLSearchParams();
+    search.set('language', 'fr');
     search.set('sort_by','popularity.desc');
     search.set('query', searchStr);
     search.set('api_key', this.apikey);
@@ -54,6 +58,7 @@ export class MoviesService {
 
   getMovie(id: string) {
     var search = new URLSearchParams();
+    search.set('language', 'fr');
     search.set('api_key', this.apikey);
     return this._jsonp.get('https://api.themoviedb.org/3/movie/'+ id +'?callback=JSONP_CALLBACK', {search})
       .map(res => {
@@ -63,7 +68,7 @@ export class MoviesService {
 
   getGenres() {
     var search = new URLSearchParams();
-    search.set('language', 'en-US');
+    search.set('language', 'fr');
     search.set('api_key', this.apikey);
     return this._jsonp.get('https://api.themoviedb.org/3/genre/movie/list?callback=JSONP_CALLBACK', {search})
       .map(res => {
@@ -74,6 +79,7 @@ export class MoviesService {
   getMoviesByGenre(id: string) {
     var search = new URLSearchParams();
     search.set('api_key', this.apikey);
+    search.set('language', 'fr');
     return this._jsonp.get('https://api.themoviedb.org/3/genre/'+ id +'/movies?callback=JSONP_CALLBACK', {search})
       .map(res => {
         return res.json();
@@ -83,6 +89,7 @@ export class MoviesService {
   getMovieVideos(id: string) {
     var search = new URLSearchParams();
     search.set('api_key', this.apikey);
+    search.set('language', 'fr');
     return this._jsonp.get('https://api.themoviedb.org/3/movie/'+ id +'/videos?callback=JSONP_CALLBACK', {search})
       .map(res => {
         return res.json();
@@ -92,6 +99,7 @@ export class MoviesService {
   getSimilarMovies(id: string) {
     var search = new URLSearchParams();
     search.set('api_key', this.apikey);
+    search.set('language', 'fr');
     return this._jsonp.get('https://api.themoviedb.org/3/movie/'+ id +'/similar?callback=JSONP_CALLBACK', {search})
       .map(res => {
         return res.json();
@@ -101,6 +109,7 @@ export class MoviesService {
   getMovieCredits(id: string) {
     var search = new URLSearchParams();
     search.set('api_key', this.apikey);
+    search.set('language', 'fr');
     return this._jsonp.get('https://api.themoviedb.org/3/movie/'+ id +'/credits?callback=JSONP_CALLBACK', {search})
       .map(res => {
         return res.json();
@@ -110,6 +119,7 @@ export class MoviesService {
   getUpComingMovies() {
     var search = new URLSearchParams();
     search.set('api_key', this.apikey);
+    search.set('language', 'fr');
     return this._jsonp.get('https://api.themoviedb.org/3/movie/upcoming?callback=JSONP_CALLBACK', {search})
       .map(res => {
         return res.json();

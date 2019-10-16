@@ -3,11 +3,11 @@
         <img *ngIf="!season.poster_path" src="../../../assets/abstract-image.jpg">
         <div class="caption">
           <h4 class="text-ellipsis">
-            <a title="Season {{season.season_number + 1}}">Season {{season.season_number + 1}} <small>({{season.episode_count}} Episodes)</small></a>
+            <a title="Season {{season.season_number + 1}}">Saison {{season.season_number + 1}} <small>({{season.episode_count}} Episodes)</small></a>
           </h4>
-          <p><strong>Air Date: </strong>{{season.air_date}}</p>
+          <p><strong>Date de diffusion: </strong>{{season.air_date}}</p>
           <p>
-            <a>View details &raquo;</a>
+            <a>Détails &raquo;</a>
             <small class="label label-success pull-right">
               {{serie.vote_average}}
               <i class="glyphicon glyphicon-star"></i>

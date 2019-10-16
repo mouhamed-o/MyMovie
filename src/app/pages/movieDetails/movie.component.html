@@ -7,7 +7,7 @@
         <img *ngIf="movie.poster_path"src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="" class="thumbnail">
         <img *ngIf="!movie.poster_path" src="./../../../assets/abstract-image.jpg" routerLink="/movie/{{movie.id}}" >
         <p>
-          <a *ngIf="movie.homepage" href="{{movie.homepage}}" class="btn btn-info btn-block" target="_blank">Visit Movies Website</a>
+          <a *ngIf="movie.homepage" href="{{movie.homepage}}" class="btn btn-info btn-block" target="_blank">Visitez le site web du film</a>
         </p>
       </div>
       <div class="col-md-8">
@@ -23,14 +23,14 @@
             {{genre.name}}
           </a>
         </p>
-        <h3>Overview</h3>
+        <h3>Résumé</h3>
         <p>
           {{movie.overview}}
         </p>
         <!--Casts-->
         <div class="row is-flex" *ngIf="cast && cast.length > 0">
           <div class="col-md-12">
-            <h3 class="text-center">Cast</h3>
+            <h3 class="text-center">Acteurs</h3>
           </div>
           <div class="col-md-3" *ngFor="let actor of cast">
             <app-actor-card [actor]="actor"></app-actor-card>
@@ -52,12 +52,12 @@
     <!--Similar Movies-->
     <div class="row is-flex" *ngIf="similarMovies && similarMovies.length > 0">
       <div class="col-md-12">
-        <h2>Similar Movies</h2>
+        <h2>Films similaires</h2>
       </div>
       <div class="col-md-2" *ngFor="let movie of similarMovies | paginate: { itemsPerPage: 6, currentPage: p }">
         <movie-card [movie]="movie"></movie-card>
       </div>
-      <pagination-controls (pageChange)="p = $event" ></pagination-controls>
+      <pagination-controls (pageChange)="p = $event" previousLabel="Précédent" nextLabel="Suivant"></pagination-controls>
     </div>
     <!--Similar Movies-->
   </div>
