@@ -7,7 +7,7 @@ export class SeriesService {
   apikey: string;
 
   constructor(private _jsonp: Jsonp) {
-    this.apikey = 'fed69657ba4cc6e1078d2a6a95f51c8c';
+    this.apikey = 'b4e196b860dfcb118b5825488aeae920';
   }
   getGenres() {
     var search = new URLSearchParams();
