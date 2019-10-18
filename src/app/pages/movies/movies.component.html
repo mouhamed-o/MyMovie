@@ -5,27 +5,27 @@
         <div *ngIf="searchRes">
           <h3 class="orange-text">Résultats de la recherche</h3>
           <div class="row is-flex">
-            <div class="col-sm-6 col-md-4 col-lg-3 col-xs-6" *ngFor="let movie of searchRes | paginate: { itemsPerPage: 8, currentPage: p }; let i = index;">
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xs-6" *ngFor="let movie of searchRes | paginate: { itemsPerPage: 8, currentPage: pRecherche, id:'pRecherche' }; let i = index;">
               <movie-card [movie]="movie"></movie-card>
             </div>
           </div>
-          <pagination-controls *ngIf="searchRes.length>8" (pageChange)="p = $event"></pagination-controls>
+          <pagination-controls id="pRecherche" *ngIf="searchRes.length>8" (pageChange)="pRecherche = $event"></pagination-controls>
         </div>
 
         <h3 *ngIf="!searchRes" class="orange-text">Films les mieux notés</h3>
         <div *ngIf="!searchRes" class="row is-flex">
-          <div class="col-sm-6 col-md-4 col-lg-3 col-xs-6" *ngFor="let movie of topRatedList | paginate: { itemsPerPage: 4, currentPage: p }; let i = index;">
+          <div class="col-sm-6 col-md-4 col-lg-3 col-xs-6" *ngFor="let movie of topRatedList | paginate: { itemsPerPage: 4, currentPage: pBest, id:'pBest' }; let i = index;">
             <movie-card [movie]="movie"></movie-card>
           </div>
-          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+          <pagination-controls id= "pBest" (pageChange)="pBest = $event"></pagination-controls>
         </div>
 
         <h3 *ngIf="!searchRes" class="orange-text">Films populaires</h3>
         <div *ngIf="!searchRes" class="row is-flex">
-          <div class="col-sm-3" *ngFor="let movie of popularList | paginate: { itemsPerPage: 4, currentPage: p }; let i = index ;">
+          <div class="col-sm-3" *ngFor="let movie of popularList | paginate: { itemsPerPage: 4, currentPage: pPopulaire, id:'pPopulaire' }; let i = index ;">
             <movie-card [movie]="movie"></movie-card>
           </div>
-          <pagination-controls (pageChange)="p = $event" previousLabel="Précédent" nextLabel="Suivant"></pagination-controls>
+          <pagination-controls id="pPopulaire" (pageChange)="pPopulaire = $event" previousLabel="Précédent" nextLabel="Suivant"></pagination-controls>
         </div>
       </div>
 </div>

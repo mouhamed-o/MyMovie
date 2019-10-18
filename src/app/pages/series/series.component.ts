@@ -1,4 +1,6 @@
 import { Component, OnInit, Output } from '@angular/core';
+import { PaginationInstance } from 'ngx-pagination';
+
 import {SeriesService} from '../../services/serieService/serieservice.service';
 
 @Component({
@@ -7,15 +9,6 @@ import {SeriesService} from '../../services/serieService/serieservice.service';
   styleUrls: ['./series.component.css']
 })
 export class SeriesComponent implements OnInit {
-  popularList: Array<Object>;
-  theatersList: Array<Object>;
-  topRatedList: Array<Object>;
-  searchRes: Array<Object>;
-  searchStr: string;
-  series: Array<Object>;
-  p: number = 1;
- 
-  @Output() searchType:number=2;
   
 
   constructor(private _seriesService: SeriesService) {
@@ -27,6 +20,23 @@ export class SeriesComponent implements OnInit {
       this.series = res.results;
     });
   }
+  popularList: Array<Object>;
+  theatersList: Array<Object>;
+  topRatedList: Array<Object>;
+  searchRes: Array<Object>;
+  searchStr: string;
+  series: Array<Object>;
+  pRecherche: number = 1;
+  pPopulaire: number = 1;
+  pBest: number = 1;
+ 
+  @Output() searchType:number=2;
+
+    public config: PaginationInstance = {
+      id: 'app-series',
+      itemsPerPage: 10,
+      currentPage: 1
+    };
 
   ngOnInit() {
   }
@@ -34,7 +44,7 @@ export class SeriesComponent implements OnInit {
   public searchSeries(event) {
     this._seriesService.searchSeries(event).subscribe(res => {
       this.searchRes = res.results;
-    })
+    });
   }
 
 }

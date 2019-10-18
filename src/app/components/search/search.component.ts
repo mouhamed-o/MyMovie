@@ -22,13 +22,12 @@ export class SearchComponent implements OnInit {
   }
 
   search() {
-    if(this.searchType==1){
+    if (this.searchType === 1) {
+      console.log("Emit : " + this.searchStr)
       this.changeMovies.emit(this.searchStr);
-    }
-    else if (this.searchType==2){
+    } else if (this.searchType === 2) {
       this.changeSeries.emit(this.searchStr);
-    }
-    else{
+    } else {
       this.changeActors.emit(this.searchStr);
     }
   }

@@ -4,25 +4,25 @@
     <p class="pull-right visible-xs">
       <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Navigation</button>
     </p>
-    <app-search [searchType]="searchType"(change)="searchMovies($event)"></app-search>
+    <app-search [searchType]="searchType" (changeMovies)="searchMovies($event)"></app-search>
     <div *ngIf="searchRes">
       <h3 class="orange-text">Résultats de la recherche</h3>
       <div class="row is-flex">
-        <div class="col-sm-6 col-md-4 col-lg-3 col-xs-6" *ngFor="let movie of searchRes | paginate: { itemsPerPage: 8, currentPage: p }; let i = index;">
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xs-6" *ngFor="let movie of searchRes | paginate: { itemsPerPage: 8, currentPage: psearch }; let i = index;">
           <movie-card [movie]="movie" type="movie">></movie-card>
         </div>
       </div>
-      <pagination-controls *ngIf="searchRes.length>8" (pageChange)="p = $event" ></pagination-controls>
+      <pagination-controls *ngIf="searchRes.length>8" (pageChange)="psearch = $event" ></pagination-controls>
     </div>
 
     <div *ngIf="!searchRes">
       <h3 class="orange-text">Films à venir</h3>
       <div class="row is-flex">
-        <div class="col-sm-6 col-md-4 col-lg-3 col-xs-6" *ngFor="let movie of movies | paginate: { itemsPerPage: 8, currentPage: p }; let i = index;">
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xs-6" *ngFor="let movie of movies | paginate: { itemsPerPage: 8, currentPage: pfilm }; let i = index;">
           <movie-card [movie]="movie" type="movie">></movie-card>
         </div>
       </div>
-      <pagination-controls (pageChange)="p = $event"  previousLabel="Précédent" nextLabel="Suivant"></pagination-controls>
+      <pagination-controls (pageChange)="pfilm = $event"  previousLabel="Précédent" nextLabel="Suivant"></pagination-controls>
     </div>
   </div>
 

@@ -12,7 +12,9 @@ export class MoviesComponent implements OnInit {
   topRatedList: Array<Object>;
   searchRes: Array<Object>;
   searchStr: string;
-  p: number = 1;
+  pRecherche: number = 1;
+  pBest: number = 1;
+  pPopulaire: number = 1;
   @Output() searchType:number=1;
 
   constructor(private _moviesService: MoviesService) {

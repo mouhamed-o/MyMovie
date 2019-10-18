@@ -9,7 +9,8 @@ import {MoviesService} from '../../services/movieService/movies.service';
 export class UpcomingComponent implements OnInit {
   movies: Array<Object>;
   searchRes: Array<Object>;
-  p:number = 1;
+  pfilm:number = 1;
+  psearch:number = 1;
   @Output() searchType:number=1;
 
   constructor(private _moviesService: MoviesService) {
@@ -22,8 +23,10 @@ export class UpcomingComponent implements OnInit {
   }
 
   public searchMovies(event) {
+    console.log(this.searchRes)
     this._moviesService.searchMovies(event).subscribe(res => {
       this.searchRes = res.results;
+      console.log(this.searchRes)
     })
   }
 

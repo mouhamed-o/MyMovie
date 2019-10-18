@@ -1,6 +1,6 @@
 <div class="thumbnail">
-    <img src="https://image.tmdb.org/t/p/w300/{{serie.poster_path}}" routerLink="/tv/{{serie.id}}" *ngIf="serie.poster_path">
-    <img src="assets/img/abstract-image.jpg" routerLink="/tv/{{serie.id}}" *ngIf="!serie.poster_path">
+    <img class="imageItem" src="https://image.tmdb.org/t/p/w300/{{serie.poster_path}}" routerLink="/tv/{{serie.id}}" *ngIf="serie.poster_path">
+    <img class="imageItem" src="../../../assets/abstract-image.jpg" routerLink="/tv/{{serie.id}}" *ngIf="!serie.poster_path">
     <div class="caption">
       <h4 class="text-ellipsis">
         <a routerLink="/tv/{{serie.id}}" title="{{serie.title}}">{{serie.name}}</a>
