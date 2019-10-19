@@ -3,7 +3,7 @@
   <img class="imageItem" *ngIf="!movie.poster_path" src="../../../assets/abstract-image.jpg" routerLink="/movie/{{movie.id}}" >
   <div class="caption">
     <h4 class="text-ellipsis">
-      <a routerLink="/movie/{{movie.id}}" title="{{movie.title}}">{{movie.title}}</a>
+      <a class="text-warp" routerLink="/movie/{{movie.id}}" title="{{movie.title}}">{{movie.title}}</a>
     </h4>
     <p><strong>Date de parution: </strong>{{movie.release_date}}</p>
     <p>

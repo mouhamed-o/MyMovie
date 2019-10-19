@@ -9,6 +9,7 @@
               <app-actor-card [actor]="actor"></app-actor-card>
             </div>
           </div>
+          <br/>
           <pagination-controls *ngIf="searchRes.length>8" (pageChange)="p = $event"></pagination-controls>
         </div>
         <h3 *ngIf="!searchRes" class="orange-text">Acteurs populaires</h3>
@@ -16,6 +17,7 @@
           <div class="col-sm-3" *ngFor="let actor of popularList | paginate: { itemsPerPage: 8, currentPage: p }; let i = index ;">
             <app-actor-card [actor]="actor"></app-actor-card>
           </div>
+          <br/>
           <pagination-controls (pageChange)="p = $event" previousLabel="Précédent" nextLabel="Suivant"></pagination-controls>
         </div>
       </div>

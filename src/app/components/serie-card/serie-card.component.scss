@@ -1,4 +1,19 @@
 .imageItem {
-    width: 300px;
+    width: 260px;
+    height: 400px;
+}
+.text-ellipsis {
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.text-warp {
+    word-wrap: break-word;
+    white-space: normal;
+}
+.thumbnail {
+    background-color: #222b31;
+border: none;
+    width: 260px;
     height: 400px;
 }

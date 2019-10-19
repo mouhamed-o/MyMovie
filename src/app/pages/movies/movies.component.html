@@ -9,6 +9,7 @@
               <movie-card [movie]="movie"></movie-card>
             </div>
           </div>
+          <br/>
           <pagination-controls id="pRecherche" *ngIf="searchRes.length>8" (pageChange)="pRecherche = $event"></pagination-controls>
         </div>
 
@@ -25,6 +26,7 @@
           <div class="col-sm-3" *ngFor="let movie of popularList | paginate: { itemsPerPage: 4, currentPage: pPopulaire, id:'pPopulaire' }; let i = index ;">
             <movie-card [movie]="movie"></movie-card>
           </div>
+          <br/>
           <pagination-controls id="pPopulaire" (pageChange)="pPopulaire = $event" previousLabel="Précédent" nextLabel="Suivant"></pagination-controls>
         </div>
       </div>

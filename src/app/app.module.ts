@@ -50,7 +50,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NgxPaginationModule,
     FormsModule,
     HttpModule,
-
     JsonpModule,
     RouterModule.forRoot(appRoutes)
   ],

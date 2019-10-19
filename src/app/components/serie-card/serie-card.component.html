@@ -3,7 +3,7 @@
     <img class="imageItem" src="../../../assets/abstract-image.jpg" routerLink="/tv/{{serie.id}}" *ngIf="!serie.poster_path">
     <div class="caption">
       <h4 class="text-ellipsis">
-        <a routerLink="/tv/{{serie.id}}" title="{{serie.title}}">{{serie.name}}</a>
+        <a class="text-warp" routerLink="/tv/{{serie.id}}" title="{{serie.title}}">{{serie.name}}</a>
       </h4>
       <p><strong>Première date de diffusion: </strong>{{serie.first_air_date}}</p>
       <p>
@@ -14,3 +14,4 @@
         </small>
       </p>
     </div>
+  </div>

@@ -12,6 +12,7 @@
               <serie-card [serie]="serie"></serie-card>
             </div>
           </div>
+          <br/>
           <pagination-controls id="pRecherche" searchRes.length>8" (pageChange)="pRecherche = $event"></pagination-controls>
         </div>
 
@@ -20,6 +21,7 @@
           <div class="col-sm-6 col-md-4 col-lg-3 col-xs-6" *ngFor="let serie of topRatedList | paginate: { itemsPerPage: 4, currentPage: pBest, id:'pBest' }; let i = index;">
             <serie-card [serie]="serie"></serie-card>
           </div>
+          <br/>
           <pagination-controls id="pBest" (pageChange)="pBest = $event"></pagination-controls>
         </div>
         
@@ -30,6 +32,7 @@
               <serie-card [serie]="serie"></serie-card>
             </div>
           </div>
+          <br/>
           <pagination-controls id="pPopulaire" (pageChange)="pPopulaire = $event" previousLabel="Précédent" nextLabel="Suivant"></pagination-controls>
         </div>
     </div>
