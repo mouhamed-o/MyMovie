@@ -11,8 +11,3 @@ img {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
-.imageItem {
-    width: 260px;
-    height: 400px;
-}
