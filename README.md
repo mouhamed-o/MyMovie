@@ -1,6 +1,6 @@
 # MyMovie
 
-The application is deployed on the following link: https://mymoviesversion1.firebaseapp.com/
+The application is deployed on the following link: https://mymoviesversion2.firebaseapp.com/
 
 ## Launch Server/Application
 
